@@ -41,7 +41,9 @@ function Index() {
   function chooseAnswer(index: number) { if (!answered) setSelectedAnswer(index); }
   function moveToNextQuestion() {
     if (selectedAnswer === null) return;
-    const nextScore = score + (selectedAnswer === question.answer ? 1 : 0);
+    const current = questions[currentQuestion];
+    if (!current) return;
+    const nextScore = score + (selectedAnswer === current.answer ? 1 : 0);
     setScore(nextScore);
     if (currentQuestion === questions.length - 1) { setScreen("results"); return; }
     setCurrentQuestion((value) => value + 1); setSelectedAnswer(null);
