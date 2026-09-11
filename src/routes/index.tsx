@@ -33,6 +33,8 @@ function Index() {
   const question = questions[currentQuestion];
   const answered = selectedAnswer !== null;
 
+  if (!question) return null;
+
   function startQuiz() {
     setCurrentQuestion(0); setSelectedAnswer(null); setScore(0); setScreen("quiz");
   }
